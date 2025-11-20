@@ -109,7 +109,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.1 Most Common Ingredients 🥬
-![Ingredients Chart](output/1.png)
+![Ingredients Chart](images/1.png)
 
 | Ingredient             | Count |
 |------------------------|-------|
