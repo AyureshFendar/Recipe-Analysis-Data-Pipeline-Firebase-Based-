@@ -247,3 +247,95 @@ Dynamic insights with visual separation and icons for clarity.
 | Easy       | 4.2       |
 | Hard       | 4.91      |
 | Medium     | 3.78      |
+
+---
+# 🚀 Running the Recipe Analytics Data Pipeline
+
+Follow these steps to set up and run the **Firebase-based Recipe Analytics project** locally.
+
+---
+
+### 1️⃣ Prerequisites
+
+Make sure you have the following installed:
+
+- **Python 3.10+**
+Check with:  
+```
+python --version
+```
+---
+### 2️⃣ Install Dependencies
+
+Install all required Python libraries:
+
+```bash
+pip install -r requirements.txt
+```
+---
+### 3️⃣ Configure Firebase
+
+Place your Firebase service account JSON in the project folder.
+Update your Main script (seed.py):
+```
+from firebase_admin import credentials, initialize_app
+
+cred = credentials.Certificate("serviceAccount.json")
+initialize_app(cred)
+
+```
+Run the seed.py to upload the collections and documents to firestore.
+
+---
+### 4️⃣ Run the ETL Pipeline
+
+Extract data from Firebase and generate normalized CSV files:
+```
+python etl_export_to_csv.py
+```
+Output files:
+| File | Description |
+|------|-------------|
+| `recipe.csv` | Contains the main recipe dataset |
+| `ingredients.csv` | Lists ingredients for each recipe |
+| `steps.csv` | Step-by-step cooking instructions |
+| `interactions.csv` | Tracks user interactions (views, likes, cook attempts) |
+
+---
+### 5️⃣ Run Data Validation
+Check data quality and generate a validation report:
+```
+python validate.py
+```
+Output file:
+`validation_summary.csv`
+
+---
+### 6️⃣ Run Analytics
+
+Generate insights and optional charts:
+```
+python analytics.py
+```
+Outputs:
+Console printout of analytics
+folder image/imgs...
+
+---
+### 7️⃣ View Results
+
+Open CSV files in Excel or any editor
+Open images in the output/ folder
+Check README.md to confirm images display correctly
+
+---
+### ✅ Tips
+
+- Use relative paths for images in README.md:
+```
+![Chart](images/1.png)
+```
+
+- Always activate your virtual environment before running scripts
+- Keep images organized in images/ or charts in output/ folders
+- Ensure Firebase service account has proper read access
