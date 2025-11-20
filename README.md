@@ -127,13 +127,13 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.2 Average Preparation Time ⏱️
-![Prep Time Chart](output/2.png)  
+![Prep Time Chart](images/2.png)  
 **42.45 minutes**
 
 ---
 
 ### 5.3 Difficulty Distribution 🎚️
-![Difficulty Chart](output/3.png)
+![Difficulty Chart](images/3.png)
 
 | Difficulty | Count |
 |------------|-------|
@@ -144,7 +144,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.4 Most Frequently Viewed Recipes 👀
-![Views Chart](output/4.png)
+![Views Chart](images/4.png)
 
 | Recipe Name             | Views |
 |-------------------------|-------|
@@ -162,7 +162,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.5 Recipes with Highest Average Likes ❤️
-![Likes Chart](output/5.png)
+![Likes Chart](images/5.png)
 
 | Recipe Name             | Avg Likes |
 |-------------------------|-----------|
@@ -180,7 +180,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.6 Recipes with Highest Cook Attempts 👩‍🍳
-![Cook Attempts Chart](output/6.png)
+![Cook Attempts Chart](images/6.png)
 
 | Recipe Name             | Cook Attempts |
 |-------------------------|---------------|
@@ -198,13 +198,13 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.7 Correlation between Prep Time & Likes 📈
-![Correlation Chart](output/7.png)  
+![Correlation Chart](images/7.png)  
 **0.242** → small positive correlation
 
 ---
 
 ### 5.8 Top Rated Recipes ⭐
-![Ratings Chart](output/8.png)
+![Ratings Chart](images/8.png)
 
 | Recipe Name             | Avg Rating |
 |-------------------------|------------|
@@ -222,7 +222,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.9 Ingredients with Highest Engagement 💬
-![Ingredient Engagement](output/9.png)
+![Ingredient Engagement](images/9.png)
 
 | Ingredient             | Avg Likes |
 |------------------------|-----------|
@@ -240,7 +240,7 @@ Dynamic insights with visual separation and icons for clarity.
 ---
 
 ### 5.10 Average Likes by Difficulty 🎚️
-![Difficulty Likes](output/10.png)
+![Difficulty Likes](images/10.png)
 
 | Difficulty | Avg Likes |
 |------------|-----------|
