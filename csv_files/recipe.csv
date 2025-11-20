@@ -1,0 +1,21 @@
+recipeId,title,category,difficulty,cookTimeMinutes,createdAt
+r1,Paneer Tikka Masala,Indian,Medium,45,2025-11-20T07:12:34.227347+00:00
+r10,Egg Curry,Egg,Easy,55,2025-11-20T07:12:41.200250+00:00
+r11,Idli Sambhar,Idli,Hard,52,2025-11-20T07:12:41.680141+00:00
+r12,Paneer Butter Masala,Paneer,Medium,43,2025-11-20T07:12:42.054127+00:00
+r13,Mutton Rogan Josh,Mutton,Hard,50,2025-11-20T07:12:42.546093+00:00
+r14,Pav Bhaji,Pav,Medium,31,2025-11-20T07:12:42.881014+00:00
+r15,Kadhai Paneer,Kadhai,Easy,30,2025-11-20T07:12:43.239898+00:00
+r16,Rajma Chawal,Rajma,Medium,52,2025-11-20T07:12:43.539862+00:00
+r17,Gobi Manchurian,Gobi,Hard,30,2025-11-20T07:12:43.893204+00:00
+r18,Hyderabadi Biryani,Hyderabadi,Medium,49,2025-11-20T07:12:44.249400+00:00
+r19,Veg Pulao,Veg,Easy,46,2025-11-20T07:12:44.556755+00:00
+r2,Veg Biryani,Veg,Hard,46,2025-11-20T07:12:36.956613+00:00
+r20,Chicken Tikka,Chicken,Medium,26,2025-11-20T07:12:44.840192+00:00
+r3,Chicken Curry,Chicken,Hard,47,2025-11-20T07:12:37.417246+00:00
+r4,Masala Dosa,Masala,Medium,46,2025-11-20T07:12:38.555282+00:00
+r5,Aloo Paratha,Aloo,Medium,21,2025-11-20T07:12:39.064302+00:00
+r6,Palak Paneer,Palak,Easy,29,2025-11-20T07:12:39.658093+00:00
+r7,Chole Bhature,Chole,Easy,48,2025-11-20T07:12:40.170085+00:00
+r8,Dal Makhani,Dal,Medium,48,2025-11-20T07:12:40.522099+00:00
+r9,Fish Fry,Fish,Hard,55,2025-11-20T07:12:40.917505+00:00
