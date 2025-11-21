@@ -340,31 +340,31 @@ folder image/imgs...
 <details>
 <summary>Click to expand: Insights </summary>
 
-### 1 Most Common Ingredients 🥬
-![Ingredients Chart](images/1.png)
+### 1. Most Popular Categories (By Views)
 
-| Ingredient             | Count |
-|------------------------|-------|
-| 200 grams paneer       | 1     |
-| 1/2 cup thick curd     | 1     |
-| 2 tbsp gram flour      | 1     |
-| ginger-garlic paste    | 1     |
-| red chilli powder      | 1     |
-| turmeric powder        | 1     |
-| garam masala           | 1     |
-| kasuri methi           | 1     |
-| salt                   | 1     |
-| oil                    | 1     |
+| Category    | Views |
+|-------------|-------|
+| Mutton      | 68    |
+| Veg         | 61    |
+| Fish        | 33    |
+| Chicken     | 31    |
+| Chole       | 28    |
+| Palak       | 23    |
+| Egg         | 18    |
+| Paneer      | 17    |
+| Hyderabadi  | 16    |
+| Rajma       | 12    |
+
 
 ---
 
-### 2 Average Preparation Time ⏱️
+### 2. Average Preparation Time ⏱️
 ![Prep Time Chart](images/2.png)  
 **42.45 minutes**
 
 ---
 
-### 3 Difficulty Distribution 🎚️
+### 3. Difficulty Distribution 🎚️
 ![Difficulty Chart](images/3.png)
 
 | Difficulty | Count |
@@ -375,7 +375,7 @@ folder image/imgs...
 
 ---
 
-### 4 Most Frequently Viewed Recipes 👀
+### 4. Most Frequently Viewed Recipes 👀
 ![Views Chart](images/4.png)
 
 | Recipe Name             | Views |
@@ -393,7 +393,7 @@ folder image/imgs...
 
 ---
 
-### 5 Recipes with Highest Average Likes ❤️
+### 5. Recipes with Highest Average Likes ❤️
 ![Likes Chart](images/5.png)
 
 | Recipe Name             | Avg Likes |
@@ -411,7 +411,7 @@ folder image/imgs...
 
 ---
 
-### 6 Recipes with Highest Cook Attempts 👩‍🍳
+### 6. Recipes with Highest Cook Attempts 👩‍🍳
 ![Cook Attempts Chart](images/6.png)
 
 | Recipe Name             | Cook Attempts |
@@ -429,13 +429,13 @@ folder image/imgs...
 
 ---
 
-### 7 Correlation between Prep Time & Likes 📈
+### 7. Correlation between Prep Time & Likes 📈
 ![Correlation Chart](images/7.png)  
 **0.242** → small positive correlation
 
 ---
 
-### 8 Top Rated Recipes ⭐
+### 8. Top Rated Recipes ⭐
 ![Ratings Chart](images/8.png)
 
 | Recipe Name             | Avg Rating |
@@ -453,25 +453,18 @@ folder image/imgs...
 
 ---
 
-### 9 Ingredients with Highest Engagement 💬
-![Ingredient Engagement](images/9.png)
+### 9. Average Cook Time by Difficulty
 
-| Ingredient             | Avg Likes |
-|------------------------|-----------|
-| 1 onion                | 0.0       |
-| 1/2 cup thick curd     | 0.0       |
-| 12 cashews             | 0.0       |
-| 2 tbsp gram flour      | 0.0       |
-| 2 tomatoes             | 0.0       |
-| 200 grams paneer       | 0.0       |
-| butter                 | 0.0       |
-| fresh cream            | 0.0       |
-| garam masala           | 0.0       |
-| ginger-garlic paste    | 0.0       |
+| Difficulty | Avg Cook Time (minutes) |
+|-----------|---------------------------|
+| Medium    | 40.11                     |
+| Easy      | 41.60                     |
+| Hard      | 46.67                     |
+
 
 ---
 
-### 10 Average Likes by Difficulty 🎚️
+### 10. Average Likes by Difficulty 🎚️
 ![Difficulty Likes](images/10.png)
 
 | Difficulty | Avg Likes |
