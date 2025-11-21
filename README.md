@@ -187,7 +187,7 @@ initialize_app(cred)
 ```
 ### 8️⃣ Run Main File
 Run the `seed.py` to upload the collections and documents to firestore.<br> 
-In firebase the stracture should be like this 
+In firebase the stracture should be like this<br> 
 The data model includes **recipes**, **users**, and **user_interactions** collections.  
 
 <details>
@@ -293,6 +293,13 @@ python validate.py
 ```
 Output file:
 `validation_summary.csv`
+| Collection        | Valid | Invalid |
+|------------------|-------|---------|
+| recipes          | 20    | 0       |
+| ingredients      | 137   | 0       |
+| steps            | 129   | 0       |
+| user_interactions| 30    | 0       |
+
 
 ---
 ### Run Analytics
