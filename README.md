@@ -341,6 +341,15 @@ folder image/imgs...
 <summary>Click to expand: Insights </summary>
 
 ### 1. Most Popular Categories (By Views)
+1. Recipe Category Popularity (By Views)
+User interactions show clear dominance of specific cuisine categories.<br>
+The most viewed categories are:
+- Mutton – highest engagement
+- Veg – strong overall interest
+- Fish, Chicken, Chole, Palak – consistent mid-tier popularity
+- Niche categories like Rajma, Hyderabadi, and Paneer have moderate visibility
+This suggests users tend to prefer protein-rich and traditional Indian dishes.
+
 ![Prep Time Chart](images/1.png)
 | Category    | Views |
 |-------------|-------|
@@ -359,12 +368,24 @@ folder image/imgs...
 ---
 
 ### 2. Average Preparation Time ⏱️
+- 	Average cook time: ~40 minutes
+Most recipes fall in the 30–50 minute range.
+The distribution indicates:
+- Few extremely quick or time-intensive recipes
+- Majority are moderate-prep meals suitable for everyday cooking
+
 ![Prep Time Chart](images/2.png)  
 **42.45 minutes**
 
 ---
 
 ### 3. Difficulty Distribution 🎚️
+Difficulty levels in the dataset are primarily:<br>
+- Easy
+- Medium
+- Hard (least common)<br>
+Most recipes are either medium or easy, indicating the dataset contains accessible meal options for general home cooks.
+
 ![Difficulty Chart](images/3.png)
 
 | Difficulty | Count |
@@ -376,6 +397,12 @@ folder image/imgs...
 ---
 
 ### 4. Most Frequently Viewed Recipes 👀
+Top 10 most viewed recipes show strong user preference for:<br>
+- Classic Indian dishes
+- Protein-based meals
+- Simple comfort food<br>
+These recipes receive significantly more visibility than niche or experimental dishes.
+
 ![Views Chart](images/4.png)
 
 | Recipe Name             | Views |
@@ -394,6 +421,8 @@ folder image/imgs...
 ---
 
 ### 5. Recipes with Highest Average Likes ❤️
+Recipes with high average likes generally align with those receiving high views.<br>
+This indicates views and likes are positively correlated, meaning popular recipes also tend to be well-received. 
 ![Likes Chart](images/5.png)
 
 | Recipe Name             | Avg Likes |
@@ -412,6 +441,12 @@ folder image/imgs...
 ---
 
 ### 6. Recipes with Highest Cook Attempts 👩‍🍳
+Users are most likely to attempt:<br>
+- Familiar daily meals
+- Easy-to-follow recipes
+- Dishes with fewer ingredients or shorter prep time
+High attempt counts often correlate with approachability rather than visibility.
+
 ![Cook Attempts Chart](images/6.png)
 
 | Recipe Name             | Cook Attempts |
@@ -430,12 +465,22 @@ folder image/imgs...
 ---
 
 ### 7. Correlation between Prep Time & Likes 📈
+- Correlation value: Low (close to zero)
+- Cook time does not influence likes.
+- Users do not prefer or dislike recipes based on preparation time alone.<br>
+Engagement depends more on taste preference and recipe type than time required.
+
 ![Correlation Chart](images/7.png)  
 **0.242** → small positive correlation
 
 ---
 
 ### 8. Top Rated Recipes ⭐
+Top-rated recipes highlight:<br>
+- Dishes with balanced flavor profiles
+- Popular staples like paneer, egg dishes, and traditional curries<br>
+These recipes maintain high average user satisfaction.
+
 ![Ratings Chart](images/8.png)
 
 | Recipe Name             | Avg Rating |
@@ -454,6 +499,13 @@ folder image/imgs...
 ---
 
 ### 9. Average Cook Time by Difficulty
+Average cook times per difficulty:<br>
+- Medium: ~40 mins
+- Easy: ~41 mins
+- Hard: ~46 mins
+Key Insight:<br>
+Hard recipes take longer on average, but Easy and Medium recipes have similar cook times, indicating difficulty is influenced more by technique/steps than duration.
+
 ![Prep Time Chart](images/9.png)
 | Difficulty | Avg Cook Time (minutes) |
 |-----------|---------------------------|
@@ -465,6 +517,11 @@ folder image/imgs...
 ---
 
 ### 10. Average Likes by Difficulty 🎚️
+- Easy ↠ More liked overall
+- Medium ↠ Moderate likes
+- Hard ↠ Least liked<br>
+This suggests users prefer simpler recipes that are quick and straightforward to follow.
+
 ![Difficulty Likes](images/10.png)
 
 | Difficulty | Avg Likes |
@@ -534,4 +591,3 @@ folder image/imgs...
 
 ### 🖼️ Diagrams
 - Mermaid.js — https://mermaid.js.org/   
-
