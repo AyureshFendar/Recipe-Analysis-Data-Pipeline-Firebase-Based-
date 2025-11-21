@@ -341,7 +341,7 @@ folder image/imgs...
 <summary>Click to expand: Insights </summary>
 
 ### 1. Most Popular Categories (By Views)
-
+![Prep Time Chart](images/1.png)
 | Category    | Views |
 |-------------|-------|
 | Mutton      | 68    |
@@ -454,7 +454,7 @@ folder image/imgs...
 ---
 
 ### 9. Average Cook Time by Difficulty
-
+![Prep Time Chart](images/9.png)
 | Difficulty | Avg Cook Time (minutes) |
 |-----------|---------------------------|
 | Medium    | 40.11                     |
