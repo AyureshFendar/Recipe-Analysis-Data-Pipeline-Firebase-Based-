@@ -1,4 +1,25 @@
-# 🍽️ Recipe Analysis Data Pipeline (Firebase-Based)
+<div align="center">
+
+<h1>Recipe Analytics Data Pipeline</h1>
+
+<p><b>Firebase → ETL → CSV → Validation → Analytics → Insights</b></p>
+
+<img src="https://img.shields.io/badge/Firebase-Firestore-orange?style=for-the-badge">
+<img src="https://img.shields.io/badge/ETL-Pipeline-blue?style=for-the-badge">
+<img src="https://img.shields.io/badge/Data-Validation-yellow?style=for-the-badge">
+<img src="https://img.shields.io/badge/Analytics-Enabled-success?style=for-the-badge">
+<img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge">
+<br><br>
+
+<h3> Developed By</h3>
+<h2><b>Ayuresh Anil Fendar</b> </h2> <h4>📌 Data Engineer</h4>
+
+<a href="mailto:ayureshfendar2003@gmail.com">
+<img src="https://img.shields.io/badge/Email-ayureshfendar2003%40gmail.com-red?style=for-the-badge">
+</a>
+
+</div>
+
 
 ## 🎯 Goal
 Design and implement a **data pipeline** using Firebase as the source system to:
@@ -502,3 +523,22 @@ folder image/imgs...
 
 - Complex structures (subcollections) require extra handling
   E.g., if recipes contain subcollections like reviews/, they need separate extraction logic.
+  
+---
+ ## 📚 References
+
+### 🔥 Firebase & Firestore
+- Firebase Firestore Docs — https://firebase.google.com/docs/firestore    
+
+### 🐍 Python & Libraries
+- Python Official Docs — https://docs.python.org/3/  
+- Pandas Documentation — https://pandas.pydata.org/docs/  
+- NumPy Documentation — https://numpy.org/doc/  
+- CSV Module — https://docs.python.org/3/library/csv.html  
+
+### 🧠 ETL Concepts 
+- Normalization — https://www.geeksforgeeks.org/database-normalization/  
+
+### 🖼️ Diagrams
+- Mermaid.js — https://mermaid.js.org/   
+
