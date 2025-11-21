@@ -16,10 +16,10 @@ The ETL (Extract–Transform–Load) pipeline converts raw Firebase Firestore JS
 ## 🔍 Extract
 The pipeline pulls raw data from your Firestore collections such as:
 
-`recipes`,
-`ingredients`,
-`steps`,
-`users`,
+`recipes`<br>
+`ingredients`<br>
+`steps`<br>
+`users`<br>
 `user_interactions (views, likes, ratings, cook attempts)`
 
 ## Extraction Highlights
@@ -79,8 +79,115 @@ src/
 └── requirements.txt
 ```
 
-## 1️⃣ Data Modeling 🔹
+---
+# 🚀 Running the Recipe Analytics Data Pipeline
 
+Follow these steps to set up and run the **Firebase-based Recipe Analytics project** locally.
+
+---
+
+### 1️⃣ Prerequisites
+
+Make sure you have the following installed:
+
+- **Python 3.10+**
+Check with:  
+```
+python --version
+```
+---
+### 2️⃣ Install Dependencies
+
+Install all required Python libraries:
+
+```bash
+pip install -r requirements.txt
+```
+---
+### 3️⃣ Activate Virtual Environment 
+```
+python -m venv venv
+venv\Scripts\activate        # Windows
+source venv/bin/activate     # macOS/Linux
+```
+---
+
+### 4️⃣ Firebase Console set-up
+Open the Firebase console in your browser:
+
+👉 https://console.firebase.google.com/
+
+<details>
+<summary> Creating a new project steps </summary>
+
+### 1. Create a New Project
+
+- Click “Add project” or “Create a project”
+- Enter your Project Name
+- Click Continue
+---
+### 2. Disable / Enable Google Analytics (Optional)
+
+- You can disable, or
+- Enable Google Analytics (optional)
+ Click Continue.
+---
+### 3️. Firebase Will Create Your Project
+
+Wait a few seconds until you see: 
+
+✅ "Your new project is ready"  
+
+Click Continue to go to your new Firebase dashboard.
+
+---
+### 4️⃣ Add Firestore Database
+
+- From left sidebar → Click Build → Firestore Database
+- Click Create database
+- Select Start in production mode (recommended)
+- Choose your Firestore region
+- Click Enable
+- Firestore is now ready to use.
+
+</details>
+
+---
+### 5️⃣ Create a Service Account (Required for Python Scripts)
+
+- Go to <br>
+- Project Settings → Service Accounts <br> 
+- Click “Generate new private key”  <br>
+- A JSON file will download.
+
+👉 Rename it to:
+```
+serviceaccount.json
+```
+👉 Place it in your project folder (e.g., src/service_account.json).
+
+---
+### 6️⃣ Install Firebase Admin SDK (Python)
+
+In your virtual environment:
+```
+pip install firebase-admin
+```
+---
+### 7️⃣ Configure Firebase
+
+Place your Firebase service account JSON in the project folder.
+Update your Main script (seed.py):
+```
+from firebase_admin import credentials, initialize_app
+
+cred = credentials.Certificate("serviceaccount.json")
+initialize_app(cred)
+
+```
+### 8️⃣ Run Main File
+Run the `seed.py` to upload the collections and documents to firestore.<br> 
+In firebase the stracture should be like this 
 The data model includes **recipes**, **users**, and **user_interactions** collections.  
 
 <details>
@@ -123,11 +230,10 @@ Tracks **views, likes, cook attempts, and ratings**.
 
 ![Model Chart](images/model1.png)
 
-</details>
 
----
 
-## 2️⃣ Firebase Source Data Setup 🔹
+
+## Firebase Source Data Setup 🔹
 
 - **Collections**: `recipes`, `users`, `interactions`  
 - **Primary dataset**: Candidate’s own recipe  
@@ -161,50 +267,48 @@ user_interactions                    // Collection
        ├── avg_rating
        └── timestamp
 ```
----
 
-## 3️⃣ ETL / ELT Pipeline 🔄
-
-- Export Firestore collections → JSON/CSV  
-- Transform into **normalized tables**:
-
-
-- Implement in **Python** or **Node.js**  
-- Ensure **data consistency** & **schema validation**
-- **Output**:
-```
-ingredients.csv
-interaction.csv
-recipe.csv
-steps.csv
-```
+</details>
 
 ---
+### 9️⃣ Run the ETL Pipeline
 
-## 4️⃣ Data Quality Validation ✅
-
-- Rules:
-  - Required fields present
-  - Positive numeric values
-  - Non-empty arrays
-  - Valid difficulty values (`Easy`, `Medium`, `Hard`)
-- **Validation Output**:
+Extract data from Firebase and generate normalized CSV files:
 ```
-validation_summary.csv
+python etl_export_to_csv.py
 ```
-
-
-> Dataset validated successfully ✔️
+Output files:
+| File | Description |
+|------|-------------|
+| `recipe.csv` | Contains the main recipe dataset |
+| `ingredients.csv` | Lists ingredients for each recipe |
+| `steps.csv` | Step-by-step cooking instructions |
+| `interactions.csv` | Tracks user interactions (views, likes, cook attempts) |
 
 ---
+### 🔟 Run Data Validation
+Check data quality and generate a validation report:
+```
+python validate.py
+```
+Output file:
+`validation_summary.csv`
 
-## 5️⃣ Analytics Insights 📊
+---
+### Run Analytics
 
+Generate insights and optional charts:
+```
+python analytics.py
+```
 Dynamic insights with visual separation and icons for clarity.
+Outputs:
+Console printout of analytics
+folder image/imgs...
 <details>
 <summary>Click to expand: Insights </summary>
 
-### 5.1 Most Common Ingredients 🥬
+### 1 Most Common Ingredients 🥬
 ![Ingredients Chart](images/1.png)
 
 | Ingredient             | Count |
@@ -222,13 +326,13 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.2 Average Preparation Time ⏱️
+### 2 Average Preparation Time ⏱️
 ![Prep Time Chart](images/2.png)  
 **42.45 minutes**
 
 ---
 
-### 5.3 Difficulty Distribution 🎚️
+### 3 Difficulty Distribution 🎚️
 ![Difficulty Chart](images/3.png)
 
 | Difficulty | Count |
@@ -239,7 +343,7 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.4 Most Frequently Viewed Recipes 👀
+### 4 Most Frequently Viewed Recipes 👀
 ![Views Chart](images/4.png)
 
 | Recipe Name             | Views |
@@ -257,7 +361,7 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.5 Recipes with Highest Average Likes ❤️
+### 5 Recipes with Highest Average Likes ❤️
 ![Likes Chart](images/5.png)
 
 | Recipe Name             | Avg Likes |
@@ -275,7 +379,7 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.6 Recipes with Highest Cook Attempts 👩‍🍳
+### 6 Recipes with Highest Cook Attempts 👩‍🍳
 ![Cook Attempts Chart](images/6.png)
 
 | Recipe Name             | Cook Attempts |
@@ -293,13 +397,13 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.7 Correlation between Prep Time & Likes 📈
+### 7 Correlation between Prep Time & Likes 📈
 ![Correlation Chart](images/7.png)  
 **0.242** → small positive correlation
 
 ---
 
-### 5.8 Top Rated Recipes ⭐
+### 8 Top Rated Recipes ⭐
 ![Ratings Chart](images/8.png)
 
 | Recipe Name             | Avg Rating |
@@ -317,7 +421,7 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.9 Ingredients with Highest Engagement 💬
+### 9 Ingredients with Highest Engagement 💬
 ![Ingredient Engagement](images/9.png)
 
 | Ingredient             | Avg Likes |
@@ -335,7 +439,7 @@ Dynamic insights with visual separation and icons for clarity.
 
 ---
 
-### 5.10 Average Likes by Difficulty 🎚️
+### 10 Average Likes by Difficulty 🎚️
 ![Difficulty Likes](images/10.png)
 
 | Difficulty | Avg Likes |
@@ -347,84 +451,11 @@ Dynamic insights with visual separation and icons for clarity.
 </details>
 
 ---
-# 🚀 Running the Recipe Analytics Data Pipeline
+### View Results
 
-Follow these steps to set up and run the **Firebase-based Recipe Analytics project** locally.
-
----
-
-### 1️⃣ Prerequisites
-
-Make sure you have the following installed:
-
-- **Python 3.10+**
-Check with:  
-```
-python --version
-```
----
-### 2️⃣ Install Dependencies
-
-Install all required Python libraries:
-
-```bash
-pip install -r requirements.txt
-```
----
-### 3️⃣ Configure Firebase
-
-Place your Firebase service account JSON in the project folder.
-Update your Main script (seed.py):
-```
-from firebase_admin import credentials, initialize_app
-
-cred = credentials.Certificate("serviceAccount.json")
-initialize_app(cred)
-
-```
-Run the `seed.py` to upload the collections and documents to firestore.
-
----
-### 4️⃣ Run the ETL Pipeline
-
-Extract data from Firebase and generate normalized CSV files:
-```
-python etl_export_to_csv.py
-```
-Output files:
-| File | Description |
-|------|-------------|
-| `recipe.csv` | Contains the main recipe dataset |
-| `ingredients.csv` | Lists ingredients for each recipe |
-| `steps.csv` | Step-by-step cooking instructions |
-| `interactions.csv` | Tracks user interactions (views, likes, cook attempts) |
-
----
-### 5️⃣ Run Data Validation
-Check data quality and generate a validation report:
-```
-python validate.py
-```
-Output file:
-`validation_summary.csv`
-
----
-### 6️⃣ Run Analytics
-
-Generate insights and optional charts:
-```
-python analytics.py
-```
-Outputs:
-Console printout of analytics
-folder image/imgs...
-
----
-### 7️⃣ View Results
-
-Open CSV files in Excel or any editor
-Open images in the output/ folder
-Check README.md to confirm images display correctly
+- Open CSV files in Excel or any editor
+- Open images in the output/ folder
+- Check README.md to confirm images display correctly
 
 ---
 ### ✅ Tips
