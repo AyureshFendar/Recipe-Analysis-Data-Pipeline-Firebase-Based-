@@ -253,7 +253,9 @@ Tracks **views, likes, cook attempts, and ratings**.
 | `avg_rating`      | float     | Average rating (1–5) | `3.8` |
 | `timestamp`       | timestamp | Interaction datetime | `"2025-11-20T12:42:48+05:30"` |
 
-![Model Chart](images/model1.png)
+
+<img src="images/model1.png" width="1000" height="800">
+
 
 
 
@@ -341,7 +343,6 @@ folder image/imgs...
 <summary>Click to expand: Insights </summary>
 
 ### 1. Most Popular Categories (By Views)
-1. Recipe Category Popularity (By Views)
 User interactions show clear dominance of specific cuisine categories.<br>
 The most viewed categories are:
 - Mutton – highest engagement
