@@ -13,6 +13,9 @@ This pipeline supports **data validation, ETL, and visualization** of recipe per
 ## 🛠️ ETL Process Overview
 
 The ETL (Extract–Transform–Load) pipeline converts raw Firebase Firestore JSON exports into clean, normalized CSV tables suitable for analytics, BI dashboards, or relational databases.
+
+![workflow](images/workflow.png)
+
 ## 🔍 Extract
 The pipeline pulls raw data from your Firestore collections such as:
 
@@ -56,6 +59,7 @@ Each table is normalized and ready for:
 - SQL import (PostgreSQL / MySQL)
 - Power BI / Tableau dashboards
 - Machine-learning models
+
 
 ---
 ## 📁 Project Structure
