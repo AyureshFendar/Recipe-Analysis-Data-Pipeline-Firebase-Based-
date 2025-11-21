@@ -10,6 +10,74 @@ Design and implement a **data pipeline** using Firebase as the source system to:
 This pipeline supports **data validation, ETL, and visualization** of recipe performance metrics.
 
 ---
+## 🛠️ ETL Process Overview
+
+The ETL (Extract–Transform–Load) pipeline converts raw Firebase Firestore JSON exports into clean, normalized CSV tables suitable for analytics, BI dashboards, or relational databases.
+## 🔍 Extract
+The pipeline pulls raw data from your Firestore collections such as:
+
+`recipes`,
+`ingredients`,
+`steps`,
+`users`,
+`user_interactions (views, likes, ratings, cook attempts)`
+
+## Extraction Highlights
+- Uses Firebase Admin SDK via a service account key
+- Reads nested subcollections and embedded arrays
+- Loads JSON files exported from Firestore (Flex/REST/CLI export)
+
+## 🔄 Transform
+During transformation, the raw Firestore data is cleaned and reshaped into relational format.
+
+## ✔ Normalization Steps
+- Flatten nested JSON objects
+- Convert arrays into separate tables
+- Parse timestamps into ISO-8601 format
+- Fix schema inconsistencies across documents
+
+- Add generated fields (e.g., interaction IDs, recipe_uid)
+
+## ✔ Generated Output Tables
+- File	Description
+- recipe.csv	Contains main recipe metadata
+- ingredients.csv	Ingredient list linked via recipeId
+- steps.csv	Step-by-step cooking instructions
+- interactions.csv	Views, likes, cook attempts, ratings
+- users.csv	User profile data
+  
+## 📥 Load
+After transformation:
+- All CSVs are stored inside:
+```
+/csv_files/.csv/
+```
+Each table is normalized and ready for:
+- SQL import (PostgreSQL / MySQL)
+- Power BI / Tableau dashboards
+- Machine-learning models
+
+---
+## 📁 Project Structure
+```
+csv_files/
+├── ingredients.csv
+├── interactions.csv
+├── recipe.csv
+├── steps.csv
+└── validation_summary.csv
+
+images/
+├── 1.png ... 10.png
+├── model1.png
+
+src/
+├── analytics.py
+├── etl_export_to_csv.py
+├── seed.py
+├── validate.py
+└── requirements.txt
+```
 
 ## 1️⃣ Data Modeling 🔹
 
@@ -53,6 +121,8 @@ Tracks **views, likes, cook attempts, and ratings**.
 | `avg_rating`      | float     | Average rating (1–5) | `3.8` |
 | `timestamp`       | timestamp | Interaction datetime | `"2025-11-20T12:42:48+05:30"` |
 
+![Model Chart](images/model1.png)
+
 </details>
 
 ---
@@ -63,8 +133,34 @@ Tracks **views, likes, cook attempts, and ratings**.
 - **Primary dataset**: Candidate’s own recipe  
 - **Synthetic data**: 15–20 recipes, 10–20 users, sample interactions  
 - **Firestore hierarchy example**:
+```
+recipes                               // Collection
+ └── {recipeId}                       // Document
+       ├── id
+       ├── name
+       ├── category
+       ├── difficulty
+       ├── cook_time
+       ├── ingredients     
+       ├── steps           
+       └── createdAt
 
+users                                // Collection
+ └── {userId}                        // Document
+       ├── userId
+       ├── name
+       └── email
 
+user_interactions                    // Collection
+ └── {interactionId}                 // Document
+       ├── userId
+       ├── recipeId
+       ├── number_of_views
+       ├── number_of_likes
+       ├── cook_attempts
+       ├── avg_rating
+       └── timestamp
+```
 ---
 
 ## 3️⃣ ETL / ELT Pipeline 🔄
@@ -105,8 +201,8 @@ validation_summary.csv
 ## 5️⃣ Analytics Insights 📊
 
 Dynamic insights with visual separation and icons for clarity.
-
----
+<details>
+<summary>Click to expand: Insights </summary>
 
 ### 5.1 Most Common Ingredients 🥬
 ![Ingredients Chart](images/1.png)
@@ -248,6 +344,8 @@ Dynamic insights with visual separation and icons for clarity.
 | Hard       | 4.91      |
 | Medium     | 3.78      |
 
+</details>
+
 ---
 # 🚀 Running the Recipe Analytics Data Pipeline
 
@@ -284,7 +382,7 @@ cred = credentials.Certificate("serviceAccount.json")
 initialize_app(cred)
 
 ```
-Run the seed.py to upload the collections and documents to firestore.
+Run the `seed.py` to upload the collections and documents to firestore.
 
 ---
 ### 4️⃣ Run the ETL Pipeline
@@ -339,3 +437,26 @@ Check README.md to confirm images display correctly
 - Always activate your virtual environment before running scripts
 - Keep images organized in images/ or charts in output/ folders
 - Ensure Firebase service account has proper read access
+---
+
+### ⚠️ Known Constraints & Limitations
+
+- Despite normalization, the dataset and Firestore structure may include some natural constraints:
+
+- Firestore export format is not perfectly standardized
+  Some nested fields or arrays may need manual cleaning.
+
+- User interactions may be incomplete
+  Not all users generate all types of interactions (views/likes/rating).
+
+- Timestamps may differ in format
+  Firestore timestamps → Python datetime → CSV (ISO format).
+
+- Images are not downloaded
+  Only URLs are stored, not the actual image files.
+
+- Analytics accuracy depends on data completeness
+  Sparse datasets may produce biased insights.
+
+- Complex structures (subcollections) require extra handling
+  E.g., if recipes contain subcollections like reviews/, they need separate extraction logic.
